@@ -10,19 +10,17 @@ module Finance
 				return fv * r / (1 + r**n - 1)
 			end
 		else fv == 0
-			if pv != 0
-				return pv * r / (1 - (1 + r)**-n)
-			end
+			return pv * r / (1 - (1 + r)**-n)
 		end
-		return 0
+		0
 	end
 
 	def pv(n, r, pmt)
-		return pmt * (1 - (1 + r)**-n) / r;
+		pmt * (1 - (1 + r)**-n) / r;
 	end
 
 	def fv(n, r, pmt)
-		return pmt * ((1 + r)**n - 1) / r
+		pmt * ((1 + r)**n - 1) / r
 	end
 
 	def irr(values, guess = 1)
@@ -48,7 +46,7 @@ module Finance
 		for i in 1..values.length-1
 			res += values[i] / t**i
 		end
-		[res]
+		res
 	end
 
 	BigDecimal::limit(100)
