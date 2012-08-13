@@ -15,6 +15,10 @@ module Finance
 		0
 	end
 
+	def paf(r, n, g)
+		(1-((1+g)/(1+r))**n)/(r-g)
+	end
+
 	def pv(n, r, pmt)
 		pmt * (1 - (1 + r)**-n) / r;
 	end
