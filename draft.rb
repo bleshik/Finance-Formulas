@@ -5,4 +5,4 @@ include Finance
 
 # write your calculations here
 # example:
-puts npv([-100, 100, 100, 100], 0.1)
+# puts npv([-100, 100, 100, 100], 0.1)

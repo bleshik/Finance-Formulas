@@ -5,22 +5,15 @@ require 'newton_utils'
 module Finance
 
 	def pmt(n, r, pv = 0, fv = 0)
-		if pv == 0
-			if fv != 0
-				return fv * r / (1 + r**n - 1)
-			end
-		else fv == 0
-			return pv * r / (1 - (1 + r)**-n)
-		end
-		0
+		return pv * r / (1 - (1 + r)**-n) + fv * r / ((1 + r)**n - 1)
 	end
 
 	def paf(r, n, g)
 		(1-((1+g)/(1+r))**n)/(r-g)
 	end
 
-	def pv(n, r, pmt)
-		pmt * (1 - (1 + r)**-n) / r;
+	def pv(n, r, pmt, fv = 0)
+		pmt * (1 - (1 + r)**-n) / r + fv / (1 + r)**n
 	end
 
 	def fv(n, r, pmt)
